@@ -25,11 +25,14 @@ class Main extends CI_Controller {
 	{
 		$crud = new grocery_CRUD();
 		$crud->set_table('employees');
-		$output = $this->grocery_crud->render();
+		$output = $crud->render();
 
-		echo "<pre>";
-		print_r($output);
-		echo "</pre>";
-		die();
+		$this->_example_output($output);
+	}
+
+	function _example_output($output = null)
+
+	{
+		$this->load->view('our_template.php',$output);
 	}
 }
